@@ -1,0 +1,175 @@
+:root {
+    --background-primary: #ffffff;
+    --background-secondary: #F2F2F2;
+
+    --text-primary: #000;
+    --text-secondary: #252525;
+
+    --line: #b9b9b9;
+}
+
+html.dark {
+    --background-primary: #000;
+    --background-secondary: #1A1A1A;
+
+    --text-primary: #fff;
+    --text-secondary: #cecece;
+
+    --line: #9c9c9c;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-primary: #000;
+        --background-secondary: #1A1A1A;
+    
+        --text-primary: #fff;
+        --text-secondary: #cecece;
+
+        --line: #9c9c9c;
+    }
+
+    html.dark {
+        --background-primary: #fff;
+        --background-secondary: #F2F2F2;
+    
+        --text-primary: #000;
+        --text-secondary: #252525;
+
+        --line: #b9b9b9;
+    }
+}
+
+* {
+    transition: background-color .2s linear;
+}
+
+html {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 4.2rem;
+    margin: 0 0 1.2rem 0;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 12px 0;
+}
+
+button {
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    padding: 14px 30px;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    transition: background-color .15s linear, border .15s linear;
+    border: 3px solid var(--background-secondary);
+}
+
+button:disabled {
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+button svg {
+    vertical-align: middle;
+    height: 1.2em;
+    width: 1.2em;
+    margin-top: -0.2em;
+    fill: var(--text-primary);
+}
+
+nav, .text-content {
+    margin: 0 clamp(12px, 4vw, 140px);
+}
+
+nav {
+    margin-top: 32px;
+}
+
+.text-content {
+    margin-top: max(16px, calc(50vh - 160px));
+}
+
+.nav-button {
+    padding: 9px;
+    margin-right: 16px;
+    border-radius: 100px;
+    box-sizing: content-box;
+    height: 24px;
+    width: 24px;
+    font-size: 0;
+}
+
+.nav-button:last-of-type {
+  margin: 0;
+}
+
+.nav-button svg {
+    fill: var(--text-primary)
+}
+
+.darkModeIcon, .activitiesIcon {
+    height: 24px;
+    width: 24px;
+}
+
+.line path, .line rect {
+    fill: none;
+    stroke: var(--text-primary);
+}
+
+.lockIcon {
+    height: 22px;
+    width: 22px;
+    padding: 1px;
+}
+
+.backIcon {
+    height: 24px;
+    width: 24px;
+}
+
+button:hover, button:focus, button:active {
+    background-color: var(--background-primary);
+}
+
+a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover::before, a:focus::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(1,1,1);
+}
+
+a::before {
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform .3s;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-secondary);
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+}
